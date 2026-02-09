@@ -1,0 +1,11 @@
+version: '3.1' 
+services:
+    ddns-go:
+        image: jeessy/ddns-go
+        container_name: ddns-go
+        restart: always
+        network_mode: host
+        ports:
+            - '9876:9876'
+        volumes:
+            - '/vol1/1000/Dockers/ddns-go:/root'
