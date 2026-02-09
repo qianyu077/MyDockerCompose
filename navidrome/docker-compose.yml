@@ -1,0 +1,28 @@
+services:
+  core:
+    environment:
+      - TZ=Asia/Shanghai
+      - ND_LOGLEVEL=info
+      - ND_DEFAULTLANGUAGE=zh-Hans       # 默认语言改为中文
+      - ND_ENABLECOVERANIMATION=false    # 禁用 Web 界面播放音乐时的封面旋转动画，没什么必要
+      - ND_ENABLEDOWNLOADS=false         # 禁用 Web 界面下载音乐的功能
+      - ND_ENABLEEXTERNALSERVICES=false  # 禁用外部集成，即使启用你也需要魔法才能用
+      - ND_ENABLEGRAVATAR=false    # 禁用 Gravatar 头像集成
+      - ND_ENABLEREPLAYGAIN=false  # 禁用 Web 界面调整回放增益的功能
+      - ND_ENABLESHARING=false     # 禁用分享功能，如果你需要分享给别人可以打开
+      - ND_ENABLESTARRATING=false  # 禁用 Web 界面的五星评级歌曲功能
+      - ND_ENABLETRANSCODINGCONFIG=false  # 禁用从 Web 界面调整转码配置的功能
+      - ND_ENABLEUSEREDITING=false        # 禁止普通用户更改自身信息与登录凭据，安全考量
+      - ND_LASTFM_ENABLED=false           # 禁用 Last.fm 集成
+      - ND_LISTENBRAINZ_ENABLED=false     # 禁用 ListenBrainZ 元数据库集成
+      - ND_MAXSIDEBARPLAYLISTS=300        # 调整侧边最多显示的播放列表数为 300（默认 100）
+      - ND_PASSWORDENCRYPTIONKEY=USE_YOUR_OWN_KEY  # 加密密钥，自己随机按一串字符串来用，一定要换成你自己的！！！
+      - ND_SCANNER_GROUPALBUMRELEASES=true         # 禁用按照日期区分专辑，防止 Navidrome 错误的按照日期从专辑中拆分单曲
+    image: deluan/navidrome:0.53.3
+    network_mode: host
+    ports:
+      - 4533:4533
+    restart: always
+    volumes:
+      - /vol1/1000/Dockers/navidrome/data:/data
+      - /vol1/1000/Dockers/navidrome/data:/music:ro  # 注意音乐文件夹是ro即只读的，Navidrome 不需要也不会对你的音乐库实际文件进行任何修改操作
