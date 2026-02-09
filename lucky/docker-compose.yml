@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  Lucky:
+    image: gdy666/lucky
+    container_name: Lucky
+    volumes:
+      - /vol1/1000/Dockers/lucky:/goodluck
+    ports:
+      - 16601:16601
+    restart: always
+    network_mode: host
