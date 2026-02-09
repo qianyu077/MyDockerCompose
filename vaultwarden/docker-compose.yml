@@ -1,0 +1,12 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - SIGNUPS_ALLOWED=true
+      - TZ=Asia/Shanghai
+    volumes:
+      - /vol1/1000/Dockers/vaultwarden:/data
+    ports:
+      - 10010:80
