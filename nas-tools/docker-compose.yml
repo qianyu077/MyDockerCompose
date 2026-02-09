@@ -1,0 +1,17 @@
+version: '3.1' 
+services:
+    nas-tools:
+        image: hsuyelin/nas-tools
+        container_name: nas-tools
+        network_mode: host
+        ports:
+            - '3000:3000'
+        volumes:
+            - '/vol1/1000/Dockers/nas-tools:/config'
+            - '/vol1/1000/Dockers/nas-tools:/TV'
+        environment:
+            - 'PUID=1000'
+            - 'PGID=1000'
+            - 'UMASK=000'
+            - 'NASTOOL_AUTO_UPDATE=false'
+            - 'NASTOOL_CN_UPDATE=false'
