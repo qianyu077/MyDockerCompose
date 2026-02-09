@@ -1,0 +1,16 @@
+services:
+  upsnap:
+    image: seriousm4x/upsnap:latest
+    container_name: upsnap
+    restart: always
+    # 使用 host 模式以确保 WOL 唤醒包能正确广播到局域网
+    network_mode: host
+    ports:
+    - '8090:8090'
+    environment:
+      - TZ=Asia/Shanghai
+      # 如果 8090 端口被占用，修改下面这行端口号
+      # - UPSNAP_WEBSITE_PORT=8090
+    volumes:
+      # 将数据持久化保存到 NAS 文件夹，防止重启丢失
+      - /vol1/1000/Dockers/upsnap:/app/pb_data
