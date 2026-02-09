@@ -12,7 +12,6 @@ cd orion-visor/
 # 复制一分配置文件，以.开头的文件飞牛会自动隐藏可能看不见，问题不大，按照下面执行命令就行
 cp .env.example .env
 
-``bash
 ### VOLUME_BASE             你希望数据持久化保存的目录, 如果不提前创建将以 docker 进程宿主身份创建 (通常是 root)
 
 ### SERVICE_PORT            你希望服务监听的端口
@@ -54,4 +53,3 @@ cp .env.example .env
 ### INFLUXDB_TOKEN          influxdb token   
 ### INFLUXDB_ADMIN_USERNAME influxdb 控制台用户名
 ### INFLUXDB_ADMIN_PASSWORD influxdb 控制台密码
-``
