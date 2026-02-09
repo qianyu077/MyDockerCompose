@@ -1,0 +1,11 @@
+services:
+  music-tag:
+    image: xhongc/music_tag_web:latest
+    container_name: music-tag-web
+    network_mode: host
+    ports:
+      - "8002:8002"
+    volumes:
+      - /vol1/1000/Dockers/Music-tag-Web:/app/media:rw
+      - /vol1/1000/Dockers/Music-tag-Web:/app/data
+    restart: always
